@@ -5,9 +5,6 @@ import pages.AllPage;
 import pages.ChoicePage;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-
 public class RegistrationFormWithPageObjectTests extends AllPage {
     RegistrationPage registrationPage = new RegistrationPage();
     ChoicePage choicePage = new ChoicePage();
@@ -18,8 +15,6 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
     String userNumber = "1231231230";
     String userAddres = "Some address 1";
     String userSubjects = "Math";
-    String message = "Thanks for submitting the form";
-
 
     @Test
     void successFillTest() {
@@ -30,8 +25,8 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
                 .setUserNumber(userNumber)
                 .setUserAddress(userAddres)
                 .setUserSubjects(userSubjects)
-                .imgPicture();
-        registrationPage.setBirthDate("30", "July", "2008");
+                .imgPicture()
+                .setBirthDate("30", "July", "2008");
 
         choicePage.radioButtonSelection();
         choicePage.choiceHobbiesWrapper();
@@ -41,7 +36,7 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
         choicePage.choiceStateCityWrapperNoida();
         choicePage.buttonFormEnd();
 
-        $("#example-modal-sizes-title-lg").shouldHave(text(message));
+        registrationPage.validateTextMatchesEnteredValues();
         registrationPage
                 .checkForm("Student Name", firstName + " " + lastName)
                 .checkForm("Student Email", userEmail)

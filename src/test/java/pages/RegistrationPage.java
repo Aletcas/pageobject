@@ -72,6 +72,12 @@ public class RegistrationPage {
         return this;
     }
 
+
+    public RegistrationPage validateTextMatchesEnteredValues() {
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        return this;
+    }
+
     public RegistrationPage checkForm(String fieldName, String value) {
         resultsTable.$(byText(fieldName))
                 .parent().shouldHave(text(value));
