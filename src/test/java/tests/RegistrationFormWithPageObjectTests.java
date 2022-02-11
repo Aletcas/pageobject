@@ -18,6 +18,8 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
     String userNumber = "1231231230";
     String userAddres = "Some address 1";
     String userSubjects = "Math";
+    String message = "Thanks for submitting the form";
+
 
     @Test
     void successFillTest() {
@@ -27,7 +29,8 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
                 .setUserEmail(userEmail)
                 .setUserNumber(userNumber)
                 .setUserAddress(userAddres)
-                .setUserSubjects(userSubjects);
+                .setUserSubjects(userSubjects)
+                .imgPicture();
         registrationPage.setBirthDate("30", "July", "2008");
 
         choicePage.radioButtonSelection();
@@ -38,10 +41,7 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
         choicePage.choiceStateCityWrapperNoida();
         choicePage.buttonFormEnd();
 
-
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
-
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text(message));
         registrationPage
                 .checkForm("Student Name", firstName + " " + lastName)
                 .checkForm("Student Email", userEmail)

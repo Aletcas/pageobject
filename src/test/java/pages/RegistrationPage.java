@@ -21,7 +21,9 @@ public class RegistrationPage {
             resultsTable = $(".table-responsive"),
             userNumberInput = $("#userNumber"),
             userAddressInput = $("#currentAddress"),
-            userSubjectInput = $("#subjectsInput");
+            userSubjectInput = $("#subjectsInput"),
+            picture = $("#uploadPicture");
+
 
 
     public RegistrationPage openPage() {
@@ -65,14 +67,14 @@ public class RegistrationPage {
         calendarComponent.setDate(day, month, year);
     }
 
-    public RegistrationPage checkForm(String fieldName, String value) {
-        resultsTable.$(byText(fieldName))
-                .parent().shouldHave(text(value));
+    public RegistrationPage imgPicture() {
+        picture.uploadFromClasspath("img/1.png");
         return this;
     }
 
-    public RegistrationPage chekRadio() {
-        $("#genterWrapper").$(byText("Other"));
+    public RegistrationPage checkForm(String fieldName, String value) {
+        resultsTable.$(byText(fieldName))
+                .parent().shouldHave(text(value));
         return this;
     }
 }
