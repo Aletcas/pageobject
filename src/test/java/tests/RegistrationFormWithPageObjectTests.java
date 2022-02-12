@@ -34,7 +34,7 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
         choicePage.choiceStateCityWrapperNCR();
         choicePage.choiceStateCity();
         choicePage.choiceStateCityWrapperNoida();
-        choicePage.buttonFormEnd();
+        choicePage.clickSubmitButton();
 
         registrationPage.validateTextMatchesEnteredValues();
         registrationPage
