@@ -14,9 +14,9 @@ public class ChoicePage {
             stateCityWrapperNCR = $("#stateCity-wrapper").$(byText("NCR")),
             stateCity = $("#city"),
             stateCityWrapperDelhi = $("#stateCity-wrapper").$(byText("Delhi")),
-            buttonForm = $("#submit");
+            clickSubmitButton = $("#submit");
 
-    public void radioButtonSelection() {
+    public void typeGender() {
         radio.click();
     }
 
@@ -41,7 +41,7 @@ public class ChoicePage {
     }
 
     public void buttonFormEnd() {
-        buttonForm.click();
+        clickSubmitButton.click();
     }
 
 }

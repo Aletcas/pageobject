@@ -1,11 +1,11 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.AllPage;
+import pages.TestBase;
 import pages.ChoicePage;
 import pages.RegistrationPage;
 
-public class RegistrationFormWithPageObjectTests extends AllPage {
+public class RegistrationFormWithPageObjectTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     ChoicePage choicePage = new ChoicePage();
 
@@ -28,7 +28,7 @@ public class RegistrationFormWithPageObjectTests extends AllPage {
                 .imgPicture()
                 .setBirthDate("30", "July", "2008");
 
-        choicePage.radioButtonSelection();
+        choicePage.typeGender();
         choicePage.choiceHobbiesWrapper();
         choicePage.choiceStateStateCity();
         choicePage.choiceStateCityWrapperNCR();
